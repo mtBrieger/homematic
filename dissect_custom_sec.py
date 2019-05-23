@@ -43,10 +43,9 @@ def bitstring_to_bytes(s):
 def main():
     f = sys.stdin
     f.readline()
-    f.readline()
 
-    m_frame = bitstring_to_bytes(f.readline()[-97:-1])
-    c_frame = bitstring_to_bytes(f.readline()[-145:-1])
+    m_frame = bitstring_to_bytes(f.readline()[-113:-17])
+    c_frame = bitstring_to_bytes(f.readline()[-161:-17])
 
     #print('m_frame: ' + format_bytes(m_frame))
     #print('c_frame: ' + format_bytes(c_frame))
