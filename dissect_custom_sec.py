@@ -27,10 +27,6 @@ def format_bytes(a):
     return ''.join(format(x, '02x') for x in a)
 
 
-def bits_to_bytes(s):
-    return int(s, 2).to_bytes(len(s) // 8, byteorder='big')
-
-
 def bitstring_to_bytes(s):
     v = int(s, 2)
     b = bytearray()
