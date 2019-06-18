@@ -1,1 +1,3 @@
+cython
 pycrypto
+-e git+https://git@github.com/mtBrieger/urh.git@parallel-usrp#egg=urh
