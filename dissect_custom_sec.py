@@ -1,5 +1,4 @@
 import sys
-import logging
 from Crypto.Cipher import AES
 
 # format of messages
@@ -25,10 +24,7 @@ def main():
     f.readline()
 
     m_frame = bitstring_to_bytes(f.readline()[-113:-17])
-    c_frame = bitstring_to_bytes(f.readline()[-161:-17])
-
-    logging.info('m_frame', bytes_to_hexstring(m_frame))
-    logging.info('c_frame', bytes_to_hexstring(c_frame))
+    c_frame = bitstring_to_bytes(f.readline()[-160:-16])
 
     tmp = xor(key, c_frame[11:17])
     aes = AES.new(tmp, AES.MODE_ECB)
