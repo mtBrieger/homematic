@@ -36,7 +36,7 @@ def main():
     Pd = xor(Pd_, parameters)
     P = aes.encrypt(Pd)
 
-    print(bytes_to_bitstring(P), end='')
+    sys.stdout.write(bytes_to_bitstring(P))
 
 
 def xor(a, b):
