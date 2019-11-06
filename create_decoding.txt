@@ -1,0 +1,14 @@
+Go to Edit > Decoding... 
+
+Drag Cut before/after from the list on the left to the right
+Cut before 1010101010101010101010101010101011101001110010101110100111001010
+
+Drag External program from the list on the left to the right
+Decoder path/to/homematic_complete d
+Encoder path/to/homematic_complete e
+
+Save as... > homematic
+Quit URH
+Open project
+
+to edit encoding in the Flow Graph right-click the message 
