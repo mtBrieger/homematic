@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="0" description="" modulation_was_edited="1">
+  <modulators>
+    <modulator carrier_amplitude="1.0" carrier_freq_hz="25833.0" carrier_phase_deg="0.0" gauss_bt="0.5" gauss_filter_width="1.0" index="0" modulation_type="1" name="Modulator" param_for_one="16000.0" param_for_zero="-16000.0" sample_rate="None" samples_per_bit="100"/>
+  </modulators>
+  <device_conf>
+    <adaptive_noise>True</adaptive_noise>
+    <apply_dc_correction>False</apply_dc_correction>
+    <automatic_center>False</automatic_center>
+    <bandwidth>1000000.0</bandwidth>
+    <bit_len>100</bit_len>
+    <center>0.0</center>
+    <decoding_name>homematic</decoding_name>
+    <freq_correction>1</freq_correction>
+    <frequency>868300000.0</frequency>
+    <gain>50</gain>
+    <modulation_index>1</modulation_index>
+    <name>USRP</name>
+    <noise>0.001</noise>
+    <num_sending_repeats>0</num_sending_repeats>
+    <rx_antenna_index>-1</rx_antenna_index>
+    <rx_baseband_gain>20</rx_baseband_gain>
+    <rx_gain>50</rx_gain>
+    <rx_if_gain>20</rx_if_gain>
+    <sample_rate>1000000.0</sample_rate>
+    <tolerance>1</tolerance>
+  </device_conf>
+  <simulator_rx_conf>
+    <apply_dc_correction>False</apply_dc_correction>
+    <bandwidth>1000000.0</bandwidth>
+    <freq_correction>1</freq_correction>
+    <frequency>868300000.0</frequency>
+    <name>USRP</name>
+    <num_sending_repeats>0</num_sending_repeats>
+    <rx_antenna_index>-1</rx_antenna_index>
+    <rx_baseband_gain>20</rx_baseband_gain>
+    <rx_gain>50</rx_gain>
+    <rx_if_gain>20</rx_if_gain>
+    <sample_rate>1000000.0</sample_rate>
+  </simulator_rx_conf>
+  <simulator_tx_conf>
+    <apply_dc_correction>False</apply_dc_correction>
+    <bandwidth>1000000.0</bandwidth>
+    <freq_correction>1</freq_correction>
+    <frequency>868300000.0</frequency>
+    <name>USRP</name>
+    <num_sending_repeats>0</num_sending_repeats>
+    <sample_rate>1000000.0</sample_rate>
+    <tx_antenna_index>-1</tx_antenna_index>
+    <tx_baseband_gain>20</tx_baseband_gain>
+    <tx_gain>50</tx_gain>
+    <tx_if_gain>20</tx_if_gain>
+  </simulator_tx_conf>
+  <group id="0" name="New Group"/>
+  <protocol>
+    <decodings>
+      <decoding>'Non Return To Zero (NRZ)', </decoding>
+      <decoding>'Non Return To Zero Inverted (NRZ-I)', 'Invert', </decoding>
+      <decoding>'Manchester I', 'Edge Trigger', </decoding>
+      <decoding>'Manchester II', 'Edge Trigger', 'Invert', </decoding>
+      <decoding>'Differential Manchester', 'Edge Trigger', 'Differential Encoding', </decoding>
+      <decoding>'homematic', 'Cut before/after', '0;1010101010101010101010101010101011101001110010101110100111001010', 'External Program', 'homematic_complete d;homematic_complete e', </decoding>
+    </decodings>
+    <participants>
+      <participant address_hex="" color_index="0" id="fc058f04-cce7-4657-af5e-3dfaf531c844" name="Alice" relative_rssi="0" shortname="A" simulate="1"/>
+      <participant address_hex="" color_index="1" id="6f6cafd7-0422-43f5-b0df-6a9033879cdf" name="Bob" relative_rssi="1" shortname="B" simulate="0"/>
+    </participants>
+    <messages/>
+    <message_types>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="1" id="dbb82082-2754-4417-9d4b-430f9958ace5" name="0b">
+        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="64" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="32"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="72" fuzz_me="2" fuzz_values="" name="length" show="2" start="64"/>
+        <label apply_decoding="True" auto_created="False" color_index="3" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="80" fuzz_me="2" fuzz_values="" name="sequence number" show="2" start="72"/>
+        <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="88" fuzz_me="2" fuzz_values="" name="control" show="2" start="80"/>
+        <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="96" fuzz_me="2" fuzz_values="" name="type" show="2" start="88"/>
+        <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="120" fuzz_me="2" fuzz_values="" name="source address" show="2" start="96"/>
+        <label apply_decoding="True" auto_created="False" color_index="7" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="144" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="120"/>
+        <label apply_decoding="True" auto_created="False" color_index="8" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="160" fuzz_me="2" fuzz_values="" name="command" show="2" start="144"/>
+        <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="15" data_ranges="[[64, 160]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="176" fuzz_me="2" fuzz_values="" name="checksum" show="2" start="160">
+          <crc final_xor="0000000000000000" polynomial="11000000000000101" start_value="1111111111111111"/>
+        </checksum_label>
+        <ruleset mode="0">
+          <rule _Rule__end="18" _Rule__start="16" _Rule__value_type="1" operator="=" target_value="0b"/>
+        </ruleset>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="1" id="1bd526a0-09fc-46dc-b4ce-e9436b66e094" name="11">
+        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="64" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="32"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="72" fuzz_me="2" fuzz_values="" name="length" show="2" start="64"/>
+        <label apply_decoding="True" auto_created="False" color_index="3" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="80" fuzz_me="2" fuzz_values="" name="sequence number" show="2" start="72"/>
+        <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="88" fuzz_me="2" fuzz_values="" name="control" show="2" start="80"/>
+        <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="96" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="88"/>
+        <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="120" fuzz_me="2" fuzz_values="" name="source address" show="2" start="96"/>
+        <label apply_decoding="True" auto_created="False" color_index="7" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="144" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="120"/>
+        <label apply_decoding="True" auto_created="False" color_index="8" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="208" fuzz_me="2" fuzz_values="" name="command" show="2" start="144"/>
+        <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="15" data_ranges="[[64, 208]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="224" fuzz_me="2" fuzz_values="" name="checksum" show="2" start="208">
+          <crc final_xor="0000000000000000" polynomial="11000000000000101" start_value="1111111111111111"/>
+        </checksum_label>
+        <ruleset mode="0">
+          <rule _Rule__end="18" _Rule__start="16" _Rule__value_type="1" operator="=" target_value="11"/>
+        </ruleset>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="1" id="ae9a4367-b4f8-4fb1-af98-4f488eb7ac3b" name="12">
+        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="64" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="32"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="72" fuzz_me="2" fuzz_values="" name="length" show="2" start="64"/>
+        <label apply_decoding="True" auto_created="False" color_index="3" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="80" fuzz_me="2" fuzz_values="" name="sequence number" show="2" start="72"/>
+        <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="88" fuzz_me="2" fuzz_values="" name="control" show="2" start="80"/>
+        <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="96" fuzz_me="2" fuzz_values="" name="type" show="2" start="88"/>
+        <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="120" fuzz_me="2" fuzz_values="" name="source address" show="2" start="96"/>
+        <label apply_decoding="True" auto_created="False" color_index="7" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="144" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="120"/>
+        <label apply_decoding="True" auto_created="False" color_index="8" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="216" fuzz_me="2" fuzz_values="" name="command" show="2" start="144"/>
+        <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="15" data_ranges="[[64, 216]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="232" fuzz_me="2" fuzz_values="" name="checksum" show="2" start="216">
+          <crc final_xor="0000000000000000" polynomial="11000000000000101" start_value="1111111111111111"/>
+        </checksum_label>
+        <ruleset mode="0">
+          <rule _Rule__end="18" _Rule__start="16" _Rule__value_type="1" operator="=" target_value="12"/>
+        </ruleset>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="1" id="65e350d8-983a-446b-8206-54a117dd18fb" name="19">
+        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="64" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="32"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="72" fuzz_me="2" fuzz_values="" name="length" show="2" start="64"/>
+        <label apply_decoding="True" auto_created="False" color_index="3" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="80" fuzz_me="2" fuzz_values="" name="sequence number" show="2" start="72"/>
+        <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="88" fuzz_me="2" fuzz_values="" name="control" show="2" start="80"/>
+        <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="96" fuzz_me="2" fuzz_values="" name="type" show="2" start="88"/>
+        <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="120" fuzz_me="2" fuzz_values="" name="source address" show="2" start="96"/>
+        <label apply_decoding="True" auto_created="False" color_index="7" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="144" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="120"/>
+        <label apply_decoding="True" auto_created="False" color_index="8" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="272" fuzz_me="2" fuzz_values="" name="command" show="2" start="144"/>
+        <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="15" data_ranges="[[64, 272]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="288" fuzz_me="2" fuzz_values="" name="checksum" show="2" start="272">
+          <crc final_xor="0000000000000000" polynomial="11000000000000101" start_value="1111111111111111"/>
+        </checksum_label>
+        <ruleset mode="0">
+          <rule _Rule__end="18" _Rule__start="16" _Rule__value_type="1" operator="=" target_value="19"/>
+        </ruleset>
+      </message_type>
+    </message_types>
+  </protocol>
+  <simulator_config>
+    <items/>
+  </simulator_config>
+</UniversalRadioHackerProject>
